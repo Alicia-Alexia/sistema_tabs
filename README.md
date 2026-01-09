@@ -29,11 +29,11 @@ A estrutura foi pensada para projetos estáticos, mantendo a raiz limpa e os rec
     │   ├── js/              <-- Pasta específica para Scripts
     │   │   └── script.js
     │   │
-    │   ├── css/             <-- (Opcional) Caso precise de um CSS customizado no futuro
     │   │
-    │   └── img/             <-- (Opcional) Para logos ou imagens
+    │   └── img/ 
+    |        └── image.png     
     │
-    ├── index.html           <-- O Entry Point deve ficar sempre na raiz
+    ├── index.html           
     └── README.md            <-- Documentação
 
 ## ✨ Funcionalidades
@@ -48,5 +48,5 @@ A estrutura foi pensada para projetos estáticos, mantendo a raiz limpa e os rec
 1. Clone este repositório:
    ```bash
    git clone [https://github.com/Alicia-Alexia/sistema_tabs.git]
-   
+
 2. Abra o arquivo index.html em qualquer navegador.
