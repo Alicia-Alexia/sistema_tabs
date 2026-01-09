@@ -11,7 +11,7 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <script>
+<script>
         tailwind.config = {
             theme: {
                 extend: {
@@ -19,9 +19,18 @@
                         sans: ['Inter', 'sans-serif'],
                     },
                     colors: {
-                        primary: '#6366f1', 
+                        primary: '#6366f1',
                         dark: '#0f172a',    
-                        card: '#1e293b',    
+                        card: '#1e293b',   
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
                     }
                 }
             }
@@ -115,7 +124,39 @@
 
         </div>
 
-    </main>
+    </main> 
+    <script>
+        function switchTab(event, tabId) {
+    const contents = document.querySelectorAll('.tab-pane');
+    contents.forEach(content => {
+        content.classList.add('hidden');
+    });
+
+    const buttons = document.querySelectorAll('.tab-btn');
+    buttons.forEach(btn => {
+        btn.classList.remove('bg-primary', 'text-white', 'border-primary');
+        
+        btn.classList.remove('bg-primary', 'text-white', 'border-primary');
+        btn.classList.remove('shadow-[0_0_20px_rgba(99,102,241,0.5)]');
+        btn.setAttribute('aria-selected', 'false');
+        btn.classList.add('bg-transparent', 'text-slate-400', 'border-slate-700');
+    });
+
+    const selectedContent = document.getElementById(tabId);
+    if (selectedContent) {
+        selectedContent.classList.remove('hidden');
+        selectedContent.classList.remove('animate-fade-in');
+        void selectedContent.offsetWidth; 
+        selectedContent.classList.add('animate-fade-in');
+    }
+
+    const clickedBtn = event.currentTarget;
+    clickedBtn.classList.remove('bg-transparent', 'text-slate-400', 'border-slate-700');
+    clickedBtn.classList.add('bg-primary', 'text-white', 'border-primary');
+    clickedBtn.classList.add('shadow-[0_0_20px_rgba(99,102,241,0.5)]');
+    clickedBtn.setAttribute('aria-selected', 'true');
+}
+    </script>
 
 </body>
 </html>
